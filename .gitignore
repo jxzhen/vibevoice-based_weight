@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Model weights (NEVER commit these)
+weights/*.safetensors
+weights/*.bin
+weights/*.pt
+weights/*.pth
+hf_cache/
+models/
+checkpoints/
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db

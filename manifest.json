@@ -1,0 +1,23 @@
+{
+  "manifest_version": "1.0",
+  "purpose": "Side-project pointer for VibeVoice-based audio editing experiments.",
+  "official_submission": {
+    "repo": "https://github.com/jxzhen/aec-2027-editx-lora",
+    "huggingface": "https://huggingface.co/jxzhen/aec-2027-editx-lora",
+    "note": "ICASSP 2027 AEC graders should grade the official submission, NOT this side-project repo."
+  },
+  "upstream_models_referenced": [
+    {
+      "id": "microsoft/VibeVoice-ASR",
+      "type": "automatic-speech-recognition",
+      "parameters_B": 7,
+      "hf_url": "https://huggingface.co/microsoft/VibeVoice-ASR",
+      "license": "see upstream model card",
+      "local_mirror": "tools/VibeVoice/ (separate from this repo)"
+    }
+  ],
+  "weights_in_this_repo": [],
+  "integrity": "no binary weights committed; integrity verified against upstream HF commit hash at deploy time",
+  "maintainer": "Jianxi Zheng <hunan08182026@126.com>",
+  "last_updated": "2026-09-30"
+}
