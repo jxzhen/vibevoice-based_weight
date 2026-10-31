@@ -12,12 +12,22 @@
       "type": "automatic-speech-recognition",
       "parameters_B": 7,
       "hf_url": "https://huggingface.co/microsoft/VibeVoice-ASR",
-      "license": "see upstream model card",
+      "pinned_revision": "d0c9efdb8d614685062c04425d91e01b6f37d944",
+      "revision_date_utc": "2026-01-27T13:12:22Z",
+      "license": "MIT",
       "local_mirror": "tools/VibeVoice/ (separate from this repo)"
     }
   ],
+  "aec2027_manifest": {
+    "path": "aec2027/MANIFEST.json",
+    "readme": "aec2027/README.md",
+    "components": "aec2027/COMPONENTS.md",
+    "verifier": "aec2027/verify_components.py",
+    "scope": "ICASSP 2027 AEC Track 2 (Agent) -- every model component pinned to an exact revision with platform release dates and per-file SHA-256",
+    "binary_weights_in_this_directory": false
+  },
   "weights_in_this_repo": [],
   "integrity": "no binary weights committed; integrity verified against upstream HF commit hash at deploy time",
   "maintainer": "Jianxi Zheng <hunan08182026@126.com>",
-  "last_updated": "2026-09-30"
+  "last_updated": "2026-11-01"
 }

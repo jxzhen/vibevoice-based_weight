@@ -35,9 +35,40 @@ one-month lightweight HK server for the following purpose:
 3. **Run** small-model experiments locally that combine
    `ModelBest/MiniCPM-o` (a ~2-4B omni-modal LLM with audio I/O) with
    `microsoft/VibeVoice` (a 7B long-form ASR / audio LLM) to see if a
-   small-model hybrid can match or exceed the published SOTA on the
-   ICASSP 2027 Audio Editing Challenge evaluation metrics
-   (SI-SDR / PESQ / STOI / Mel L1 / LSD).
+   small-model hybrid can match or exceed published reference numbers on
+   **reference-signal metrics** (SI-SDR / PESQ / STOI / Mel L1 / LSD) in a
+   side-project comparison.
+
+   > Note on metric scope: SI-SDR / PESQ / STOI / Mel L1 / LSD are
+   > **reference-signal metrics**, not the official AEC challenge metrics.
+   > The official ICASSP 2027 AEC metrics are **IFR** (instruction
+   > fulfilment rate), **CR** (content retention) and **EMR** (exact-match
+   > rate), produced by the unmodified official evaluator
+   > (`python -m eval.score`). Numbers in that metric space are not
+   > published here.
+
+## `aec2027/` -- model component manifest
+
+[`aec2027/`](aec2027/) is the audit artifact for the audio-editing agent
+project: every model component pinned to an exact revision, with the
+platform's own release dates and per-file SHA-256 checksums, plus the
+verification script.
+
+- [`aec2027/MANIFEST.json`](aec2027/MANIFEST.json) -- machine-readable
+- [`aec2027/README.md`](aec2027/README.md) -- what it is, and why it holds
+  no binaries
+- [`aec2027/COMPONENTS.md`](aec2027/COMPONENTS.md) -- per-component notes
+  with sources
+- [`aec2027/verify_components.py`](aec2027/verify_components.py) -- re-derive
+  every digest from the Hub API
+
+It contains **no model weights**, on purpose: re-uploading a copy of
+already-public weights would create a second, later public exposure of the
+same bytes and would put the authoritative release date in doubt. The
+weights stay upstream, where the platform records it.
+
+Latest component release among them: **2026-10-30**, inside the
+2026-11-01 cutoff set by Track 2 Rule 1.
 
 ## Relationship at a glance
 
@@ -69,6 +100,12 @@ one-month lightweight HK server for the following purpose:
 +- README.md                          this file
 +- LICENSE                            MIT
 +- manifest.json                      machine-readable manifest
++- aec2027/                           AEC model component manifest (no binaries)
+|   +- README.md
+|   +- MANIFEST.json
+|   +- COMPONENTS.md
+|   +- verify_components.py
+|   +- LOCAL_SHA256_*.txt             digests of the deployed copies
 +- benchmarks/
 |   +- README.md                      ASR comparison overview
 |   +- run_vibevoice.py               VibeVoice-ASR inference dump

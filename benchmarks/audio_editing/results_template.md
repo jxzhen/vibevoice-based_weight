@@ -21,14 +21,26 @@
 | audioeditor | _ | _ | _ | _ | _ |
 | audit | _ | _ | _ | _ | _ |
 | instructspeech | _ | _ | _ | _ | _ |
-| **ours (MiniCPM-o + VibeVoice)** | **TARGET > 13.1** | **TARGET > 2.94** | **TARGET > 0.91** | **TARGET < 0.16** | **TARGET < 5.3** |
+| **ours (MiniCPM-o + VibeVoice)** | _TBD_ | _TBD_ | _TBD_ | _TBD_ | _TBD_ |
 
 ## Target
 
-Exceed ICASSP 2027 AEC published SOTA (AudioEditor ICASSP 2025:
-SI-SDR 13.1, PESQ 2.94, STOI 0.91) with a **small-model hybrid**
-(<10B combined params) instead of a full retraining training-free
-pipeline.
+The target line is **left unset on purpose**.
+
+It previously read `TARGET > 13.1 / > 2.94 / > 0.91`, quoting AudioEditor
+(ICASSP 2025). Two things were wrong with that:
+
+1. **The numbers could not be traced to a primary source.** The AudioEditor
+   ICASSP 2025 paper reports FD / KL / FAD / IS / CLAP-cosine and MOS --
+   it does not report SI-SDR / PESQ / STOI / Mel L1 / LSD.
+2. **The scope was wrong.** AudioEditor is an ICASSP 2025 system compared in
+   its own paper's benchmark. The official ICASSP 2027 AEC metrics are
+   **IFR / CR / EMR** (from the unmodified official evaluator), not
+   reference-signal metrics, so nothing here is an AEC leaderboard number.
+
+Fill the target in only when both hold: the reference row's values are
+verified against the paper, and the comparison is stated as "AudioEditor vs
+ours **in each paper's own benchmark**".
 
 ## Observations (free-form)
 
